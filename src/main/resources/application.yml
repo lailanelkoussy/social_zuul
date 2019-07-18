@@ -1,0 +1,22 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: ZuulServer
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    user:
+      path: /userms/**
+      url: http://localhost:8087/
+    photo:
+      path: /photoms/**
+      url: http://localhost:8082/
+    group:
+      path: /groupms/**
+      url: http://localhost:8083
