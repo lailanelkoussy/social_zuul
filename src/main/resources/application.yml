@@ -10,6 +10,7 @@ eureka:
     prefer-ip-address: true
 
 zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
   routes:
     user:
       path: /userms/**
@@ -20,3 +21,12 @@ zuul:
     group:
       path: /groupms/**
       url: http://localhost:8083
+    authorization:
+      path: /auth/**
+      url: http://localhost:8095/
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123
